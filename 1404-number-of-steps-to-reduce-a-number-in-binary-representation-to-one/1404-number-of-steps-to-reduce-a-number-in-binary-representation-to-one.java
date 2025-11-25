@@ -1,16 +1,20 @@
 class Solution {
     public int numSteps(String s) {
-        int num = Integer.parseInt(s, 2); 
-        int count = 0;
+        int steps = 0;
+        int carry = 0;
 
-        while(num != 1){
-            if(num % 2 == 0){
-                num/=2;
+        for(int i = s.length()-1; i>0; i--){
+            int bit = s.charAt(i) - '0';
+
+            if(bit + carry == 1){
+                steps += 2;
+                carry = 1;
             }else{
-                num += 1;
+                steps += 1;
             }
-            count++;
+
         }
-        return count;
+
+        return steps + carry;
     }
 }
