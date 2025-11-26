@@ -1,16 +1,14 @@
 class Solution {
     public char repeatedCharacter(String s) {
-        int[] freq = new int[26];
+        HashSet<Character> set = new HashSet<>();
 
         for (char c : s.toCharArray()) {
-            int idx = c - 'a';
-
-            if (freq[idx] == 1)
+            if (set.contains(c))
                 return c;
 
-            freq[idx]++;
+            set.add(c);
         }
 
-        return ' ';
+        return ' '; 
     }
 }
