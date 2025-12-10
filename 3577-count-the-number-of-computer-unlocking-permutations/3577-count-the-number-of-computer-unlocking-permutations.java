@@ -18,9 +18,9 @@ class Solution {
             return 1;
         }
 
-        long res = factorial(n-1, modulo);
-        res = (res * n) % modulo;
+        long fact = factorial(n-1, modulo);
+        fact = (fact * n) % modulo;
 
-        return (int)res;
+        return (int)fact;
     }
 }
