@@ -1,0 +1,23 @@
+class Solution {
+    public int subsetXORSum(int[] nums) {
+        int xorsum = 0;
+        int n = nums.length;
+        for(int mask = 0; mask < (1 << n); mask++){
+            int xor = 0;
+            for(int i = 0; i < n; i++){
+                if((mask & (1 << i)) != 0){
+                    xor ^= nums[i];
+                }
+            }
+            xorsum += xor;    
+        }
+        return xorsum;        
+    }
+    public int xored(int[] nums){
+        int xor = 0;
+        for(int i = 0; i < nums.length; i++){
+            xor ^= nums[i];
+        }
+        return xor;
+    }
+}
